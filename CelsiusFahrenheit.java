@@ -13,7 +13,8 @@ public class CelsiusFahrenheit {
 
 		String celsiusH = 		"Celsius";
 		String fahrenheitH = 	"Fahrenheit";
-		String rom = "          ";
+		String rom = "     ";
+	
 		String heading = (celsiusH + rom + fahrenheitH + rom + "|" + rom + fahrenheitH + rom + celsiusH);
 		System.out.print(heading + "\n");
 		for (int i = 1; i <= heading.length(); i++)
@@ -33,10 +34,15 @@ public class CelsiusFahrenheit {
 			celsius = 40-i;
             fahrenheit = 120-10*i;
 			celsiusConverted = celsiusToFahrenheit(celsius);
-			fahrenheitConverted = fahrenHeitToCelsius(fahrenheit);
+			fahrenheitConverted = fahrenheitToCelsius(fahrenheit);
 
-			System.out.print(df.format(celsius) + rom +  df.format(celsiusConverted) + rom + "|" + rom + df.format(fahrenheit) + rom + df.format(fahrenheitConverted)+"\n");
+			System.out.printf("%-12.1f", celsius);
+            System.out.printf("%-15.1f|", celsiusToFahrenheit(celsius));
+            System.out.printf("     %-15.1f", fahrenheit);
+            System.out.printf("%-7.2f\n", fahrenheitToCelsius(fahrenheit));
 
+
+			
 			
 		}
 	}
@@ -46,7 +52,7 @@ public class CelsiusFahrenheit {
 		double y = (9.0/5) * x + 32;
 		return y;
 	}
-	public static double fahrenHeitToCelsius(double x) {
+	public static double fahrenheitToCelsius(double x) {
 		double y = (5.0/9) * (x - 32);
 		return y;
 	}
